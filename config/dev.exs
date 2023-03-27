@@ -54,11 +54,13 @@ config :cool, CoolWeb.Endpoint,
 
 # Watch static and templates for browser reloading.
 config :cool, CoolWeb.Endpoint,
+  reloadable_compilers: [:gettext, :elixir, :app, :surface],
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/cool_web/(controllers|live|components)/.*(ex|heex)$"
+      ~r"lib/cool_web/(controllers|live|components)/.*(ex|heex)$",
+      ~r"lib/cool/.*$"
     ]
   ]
 

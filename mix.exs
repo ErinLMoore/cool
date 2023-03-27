@@ -38,7 +38,7 @@ defmodule Cool.MixProject do
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 3.3"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:phoenix_live_view, "~> 0.18.16"},
+      {:phoenix_live_view, "~> 0.18.18"},
       {:floki, ">= 0.30.0", only: :test},
       {:phoenix_live_dashboard, "~> 0.7.2"},
       {:esbuild, "~> 0.7", runtime: Mix.env() == :dev},
@@ -49,7 +49,10 @@ defmodule Cool.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
-      {:plug_cowboy, "~> 2.5"}
+      {:plug_cowboy, "~> 2.5"},
+      {:ex_png, "~> 1.0.0"},
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
+      {:surface, git: "https://github.com/frankdugan3/surface.git", ref: "3ad229ba5e9fb4583e108481916697f00b7e297c"}
     ]
   end
 
@@ -61,6 +64,7 @@ defmodule Cool.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
+      start: ["phx.server"],
       setup: ["deps.get", "ecto.setup", "assets.setup", "assets.build"],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
